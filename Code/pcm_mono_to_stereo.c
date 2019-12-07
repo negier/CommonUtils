@@ -19,11 +19,6 @@ void pcmMonoToStereo(const char* pcmPath,const char* newPcmPath){
 		return;
 	}
 	
-	//为了获取文件大小
-        fseek(pcm,0L,SEEK_END); 
-        long fileSize = ftell(pcm);
-        rewind(pcm);
-        
 	FILE* newPcm =  fopen(newPcmPath,"w");
 
         int p;
