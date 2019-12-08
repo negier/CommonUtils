@@ -25,17 +25,19 @@ void pcmMonoToStereo(const char* pcmPath,const char* newPcmPath){
         int mark = 0;
 	char left1,left2;
         while((p=fgetc(pcm))!=EOF){ // fgetc返回的是一个unsigned char，一个字节
-		if(mark==0){
-			left1 = p;
-		}else if(mark==1){
-			left2 = p;
-		}else if(mark==2){
-                        //复制值到另一个声道
+		if(mark==2){
+                 
+		 	//复制值到另一个声道
 			fwrite(&left1,sizeof(left1),1,newPcm);
  			fwrite(&left2,sizeof(left2),1,newPcm);
 
                         mark = 0;
                 }
+		if(mark==0){
+			left1 = p;
+		}else if(mark==1){
+			left2 = p;
+		}
 		fwrite(&p,1,1,newPcm);
                 mark++;
         }
