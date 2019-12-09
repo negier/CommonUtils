@@ -19,7 +19,7 @@ void pcmMonoToStereo(const char* pcmPath,const char* newPcmPath){
 		return;
 	}
 	
-	FILE* newPcm =  fopen(newPcmPath,"w");
+	FILE* newPcm =  fopen(newPcmPath,"wb");
 
         int p;
         int mark = 0;
