@@ -14,7 +14,7 @@ void pcmMonoToStereo(const char* pcmPath,const char* newPcmPath){
 		return;
 	}
 	FILE* pcm;
-	if((pcm =  fopen(pcmPath,"r"))==NULL){
+	if((pcm =  fopen(pcmPath,"rb"))==NULL){
 		printf("传入的pcm文件地址有误");
 		return;
 	}
